@@ -16,5 +16,8 @@ ENV NVM_DIR="/root/.nvm"
 ENV NODE_PATH="$NVM_DIR/versions/node/$(ls $NVM_DIR/versions/node)/lib/node_modules"
 ENV PATH="$NVM_DIR/versions/node/$(ls $NVM_DIR/versions/node)/bin:$PATH"
 
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
 CMD [ "/init" ]
