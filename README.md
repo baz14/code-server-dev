@@ -11,13 +11,13 @@ Development environment container
 
 # File Structure
 
-- ./config - all configs
+- `./config` - all configs
 
-- ./config/.ssh - SSH files.
+- `./config/.ssh` - SSH files.
 
-  - ".pub" files - public ssh-key files
+  - `.pub` files - public ssh-key files
 
-- ./workspace - work directory
+- `./workspace` - work directory
 
 # Update environment
 
@@ -36,20 +36,27 @@ Update [docker-compose] environment
 - update [docker-compose]
 
 - build "code-server-dev" container
-  > docker-compose up --build -d
+
+  ```bash
+  docker-compose up --build -d
+  ```
 
 # Use container
 
 - run container
 
-  > docker start code-server-dev
+  ```bash
+  docker start code-server-dev
+  ```
 
 - configuring a Proxy for a WSL Server Port for Windows
 
-  - 172.31.180.187 - ip addr WSL Server
-  - 7777 - port
+  - `172.31.180.187` - ip addr WSL Server
+  - `7777` - port
 
-  > netsh interface portproxy add v4tov4 listenport=7777 listenaddress=0.0.0.0 connectport=7777 connectaddress=172.31.180.187
+  ```bash
+  netsh interface portproxy add v4tov4 listenport=7777 listenaddress=0.0.0.0 connectport=7777 connectaddress=172.31.180.187
+  ```
 
 - open link - [https://localhost:9000]
 
@@ -57,12 +64,17 @@ Update [docker-compose] environment
 
   - github.com
 
-    > GIT_SSH_COMMAND="ssh -i /config/.ssh/github_prj1_20250414" \
-    >  git clone git@github.com:youruser/myportfolio.git
+    ```bash
+    GIT_SSH_COMMAND="ssh -i /config/.ssh/github_prj1_20250414" \
+    git clone <git@github.com>:youruser/myportfolio.git
+    ```
 
   - bitbucket.com
-    > GIT_SSH_COMMAND="ssh -i /config/.ssh/bitbucket_prj2_20250414" \
-    >  git clone git@bitbucket.org:youruser thebestprj.git
+
+    ```bash
+    GIT_SSH_COMMAND="ssh -i /config/.ssh/bitbucket_prj2_20250414" \
+    git clone <git@bitbucket.org>:youruser thebestprj.git
+    ```
 
 [code-server]: https://hub.docker.com/r/linuxserver/code-server
 [nvm]: https://github.com/nvm-sh/nvm
