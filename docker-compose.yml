@@ -1,0 +1,17 @@
+services:
+  dev:
+    build: .
+    container_name: code-server-dev
+    ports:
+      - "9000:8443"
+    volumes:
+      - ./config:/config
+      - ./workspace:/config/workspace
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+      - PASSWORD=12345
+      - GIT_USER_NAME=Your Name
+      - GIT_USER_EMAIL=test@test.test
+      - SSH_KEYS=github_prj1_20250414,bitbucket_prj2_20250414
